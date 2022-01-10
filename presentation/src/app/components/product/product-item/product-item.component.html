@@ -1,0 +1,26 @@
+<div>
+  <div class="container-fluid d-flex">
+    <div class="col-3">
+      <span class="card-text">{{ product.label }}</span>
+    </div>
+    <div class="col-2">
+      <p class="card-text">{{ product.quantity }}</p>
+    </div>
+    <div class="col-2">
+      <p class="badge badge-info">{{ product.type }}</p>
+    </div>
+    <div class="col-2">
+      <p class="badge badge-secondary">{{ product.stock.id }}</p>
+    </div>
+    <div class="col-2">
+      <a>
+        <button mat-icon-button routerLink="{{product.reference}}">
+          <mat-icon color="primary">edit</mat-icon>
+        </button>
+      </a>
+      <button mat-icon-button (click)="deleteProduct()">
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

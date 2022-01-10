@@ -1,0 +1,14 @@
+<div *ngIf='dialogStatus == true'>
+  <h3>Information</h3>
+  <div class='d-flex flex-row justify-content-around'>
+    <p class='d-inline-block'>{{data.message}}</p>
+    <button class='btn btn-danger' mat-dialog-close>Fermer</button>
+  </div>
+</div>
+<div *ngIf='dialogStatus == false'>
+  <h3>Erreur</h3>
+  <div class='d-flex flex-row justify-content-around'>
+    <p class='d-inline-block'>{{data.message}}</p>
+    <button class='btn btn-danger' mat-dialog-close>Fermer</button>
+  </div>
+</div>

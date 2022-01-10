@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h3>Fiche produit</h3>
+    <button style="float: right; position: relative; bottom: 5px;" (click)="close()" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <form [formGroup]="productForm" class="form-group" (ngSubmit)="addProduct()">
+    <div>
+      <label for name="label">Libellé : </label>
+      <input name="label" class="form-control" formControlName="label" type="text" required/>
+      <br>
+      <label for name="type">Type : </label>
+      <input name="type" class="form-control" formControlName="type" type="text" required/>
+      <br>
+      <label for name="quantity">Quantité : </label>
+      <input name="quantity" class="form-control" formControlName="quantity" type="text" required/>
+      <br>
+      <label for name="stock">Référence stock : </label>
+      <select name="stock" class="form-control" formControlName="stock">
+        <option *ngFor="let stock of stocks" [value]="stock.id" required>Stock: {{stock.id}} , capacité: {{stock.capacity}}</option>
+      </select>
+      <br>
+    </div>
+    <br>
+    <button mat-stroked-button color="primary" type="submit" [disabled]="productForm.invalid">Sauvegarder</button>
+  </form>
+</div>
+

@@ -1,0 +1,28 @@
+<div>
+  <div class="container-fluid d-flex">
+    <div class="col-3">
+      <span class="card-text">{{ stock.id }}</span>
+    </div>
+    <div class="col-3">
+      <p class="card-text">{{ stock.capacity }}</p>
+    </div>
+    <div class="col-3">
+      <ng-container *ngIf="product.length == 0; else hasProduct">
+        <p class="card-text">Aucun produit associé</p>
+      </ng-container>
+      <ng-template #hasProduct>
+        <p class="card-text" *ngFor="let productItem of product">{{ productItem.label }} </p>
+      </ng-template>
+    </div>
+    <div class="col-3">
+      <a>
+        <button mat-icon-button (click)="openEditDialog()">
+          <mat-icon color="primary">edit</mat-icon>
+        </button>
+      </a>
+      <button mat-icon-button (click)="deleteProduct()">
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

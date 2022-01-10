@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-between customer-header">
+  <h4>Contrats</h4>
+  <button class="btn btn-lg btn-primary" (click)="openDialog()">Ajouter un contact</button>
+</div>
+<ul class="list-group-horizontal-lg">
+  <li class="list-group-item" style="background-color: #f8f9fa;">
+    <div class="container-fluid d-flex">
+      <div class="col-3">
+        <span class="font-weight-bold">N° client</span>
+      </div>
+      <div class="col-3">
+        <span class="font-weight-bold">Prénom contact</span>
+      </div>
+      <div class="col-3">
+        <span class="font-weight-bold">Nom contact</span>
+      </div>
+    </div>
+  </li>
+  <ng-container class="test" *ngFor="let customerItem of customers">
+    <li class="list-group-item">
+      <app-customer-item [customer]="customerItem"></app-customer-item>
+    </li>
+  </ng-container>
+</ul>

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h3>Sauvegarder un stock</h3>
+    <button style="float: right; position: relative; bottom: 5px;" (click)="close()" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <form [formGroup]="stockForm" class="form-group" (ngSubmit)="addStock()">
+    <div>
+      <label for name="capacity">Capacité maximale : </label>
+      <input name="capacity" class="form-control" formControlName="capacity" type="text" required/>
+      <br>
+    </div>
+    <br>
+    <button mat-stroked-button color="primary" type="submit" [disabled]="stockForm.invalid">Sauvegarder</button>
+  </form>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between stock-header">
+  <ng-container *ngIf="stocks.length == 1">
+    <h4>{{stocks.length}} Stock actif</h4>
+  </ng-container>
+  <ng-container *ngIf="stocks.length > 1">
+    <h4>{{stocks.length}} Stocks actifs</h4>
+  </ng-container>
+  <button class="btn btn-lg btn-primary" (click)="openDialog()">Ajouter un produit</button>
+</div>
+<ul class="list-group-horizontal-lg">
+  <li class="list-group-item" style="background-color: #f8f9fa;">
+    <div class="container-fluid d-flex">
+      <div class="col-3">
+        <span class="font-weight-bold">N° référence</span>
+      </div>
+      <div class="col-3">
+        <span class="font-weight-bold">Capacité max</span>
+      </div>
+      <div class="col-3">
+        <span class="font-weight-bold">Produits assignés</span>
+      </div>
+    </div>
+  </li>
+  <ng-container class="test" *ngFor="let stock of stocks">
+    <li class="list-group-item">
+      <app-stock-item [stock]="stock"></app-stock-item>
+    </li>
+  </ng-container>
+</ul>

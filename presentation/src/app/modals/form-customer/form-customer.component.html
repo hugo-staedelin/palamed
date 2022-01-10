@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h3>Ajouter un contact</h3>
+    <button style="float: right; position: relative; bottom: 5px;" (click)="close()" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <form [formGroup]="customerForm" class="form-group" (ngSubmit)="addCustomer()">
+    <div>
+      <label for name="firstname">Prénom contact</label>
+      <input name="firstname" class="form-control" formControlName="firstname" type="text" required/>
+      <br>
+      <label for name="lastname">Nom contact</label>
+      <input name="lastname" class="form-control" formControlName="lastname" type="text" required/>
+      <br>
+    </div>
+    <br>
+    <button mat-stroked-button color="primary" type="submit" [disabled]="customerForm.invalid">Sauvegarder</button>
+  </form>
+</div>
+

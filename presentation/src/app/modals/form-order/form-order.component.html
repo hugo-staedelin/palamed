@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between">
+  <h4>Sauvegarder une commande</h4>
+  <button style="float: right; position: relative; bottom: 5px;" mat-icon-button (click)='close()'>
+    <mat-icon>close</mat-icon>
+  </button>
+</div><br>
+<div class='card w-auto'>
+  <form [formGroup]="customerWithOrderForm" class="form-group" (ngSubmit)="addOrder()">
+    <div class='card-body'>
+      <fieldset formGroupName='order'>
+        <ng-container *ngIf="customers.length > 0">
+          <label for name="customer">Client : </label>
+          <select name='customer' class='form-control' formControlName='customer'>
+            <option *ngFor='let customer of customers' [value]='customer.id'>{{customer.firstname}} {{customer.lastname}}</option>
+          </select><br>
+        </ng-container>
+      </fieldset>
+      <fieldset formGroupName='product'>
+        <label for name="reference">Produit commandé : </label>
+        <select class="form-control" formControlName="reference" >
+          <option *ngFor="let product of products" [value]="product.reference" required>{{product.label}}</option>
+        </select><br>
+      </fieldset>
+      <label for name="quantity">Quantité : </label>
+      <input name="quantity" class="form-control" formControlName="quantity" type="text" required/>
+      <br>
+      <br>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="customerWithOrderForm.invalid">Sauvegarder</button>
+    </div>
+  </form>
+</div>

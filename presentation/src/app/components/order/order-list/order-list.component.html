@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between order-header">
+  <h4>Commandes actives</h4>
+  <button class="btn btn-lg btn-primary" (click)="openDialog()">Déclarer une commande</button>
+</div>
+<ul class="list-group-horizontal-lg">
+  <li class="list-group-item" style="background-color: #f8f9fa;">
+    <div class="container-fluid d-flex">
+      <div class="col-2">
+        <span class="font-weight-bold">Ref commande</span>
+      </div>
+      <div class="col-2">
+        <span class="font-weight-bold">N° client</span>
+      </div>
+      <div class="col-3">
+        <span class="font-weight-bold">Produit commandé</span>
+      </div>
+      <div class="col-3">
+        <span class="font-weight-bold">Quantité</span>
+      </div>
+    </div>
+  </li>
+  <ng-container class="test" *ngFor="let productsFromOrdersItem of productFromOrders">
+    <li class="list-group-item">
+      <app-order-item [productFromOrders]="productsFromOrdersItem"></app-order-item>
+    </li>
+  </ng-container>
+</ul>
+
+

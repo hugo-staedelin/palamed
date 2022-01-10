@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h3>Editer fiche produit</h3>
+    <button style="float: right; position: relative; bottom: 5px;" (click)="close()" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <form [formGroup]="productForm" class="form-group" (ngSubmit)="editProduct()">
+    <div>
+      <mat-label for name="label">Libellé : </mat-label>
+      <input name="label" class="form-control" formControlName="label" type="text" required [value]="data.label"/>
+      <br>
+      <mat-label for name="type">Type : </mat-label>
+      <input name="type" class="form-control" formControlName="type" type="text" required [value]="data.type"/>
+      <br>
+      <mat-label for name="quantity">Quantité : </mat-label>
+      <input name="quantity" class="form-control" formControlName="quantity" type="text" required [value]="data.quantity"/>
+      <br>
+    </div>
+    <br>
+    <button mat-stroked-button color="primary" type="submit">Modifier</button>
+  </form>
+</div>

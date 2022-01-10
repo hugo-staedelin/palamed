@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  palamed-mysql:
+    container_name: palamed-mysql
+    build:
+      context: ./mysql
+      dockerfile: dev.Dockerfile
+    env_file:
+      - api/env/mysql/.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+  palamed-api:
+    container_name: palamed-api
+    build:
+      context: ./api
+      dockerfile: dev.Dockerfile
+    ports:
+      - 3000:3000
+    command: npm run start
+    env_file:
+      - api/env/node/.env
+    depends_on:
+      - palamed-mysql
